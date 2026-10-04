@@ -1,8 +1,8 @@
 from .base_component import BaseComponent
 from fasthtml.common import Select, Label, Div, Option
 
-class Dropdown(BaseComponent):
 
+class Dropdown(BaseComponent):
 
     def __init__(self, id="selector", name="entity-selection", label=""):
         self.id = id
@@ -15,11 +15,10 @@ class Dropdown(BaseComponent):
             option = Option(text, value=value, selected="selected" if str(value) == entity_id else "")
             options.append(option)
 
-
         dropdown_settings = {
             'name': self.name
             }
-        
+
         # if model.name:
         #     dropdown_settings['disabled'] = 'disabled'
 
@@ -27,9 +26,9 @@ class Dropdown(BaseComponent):
             *options,
             **dropdown_settings
             )
-        
+
         return selector
-    
+
     def outer_div(self, child):
 
         return Div(
@@ -37,4 +36,3 @@ class Dropdown(BaseComponent):
             child,
             id=self.id,
         )
-    

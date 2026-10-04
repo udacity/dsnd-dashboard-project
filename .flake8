@@ -1,0 +1,8 @@
+[flake8]
+max-line-length = 120
+exclude = .git,__pycache__,.venv,build,dist,src
+per-file-ignores =
+    # package re-exports
+    __init__.py: F401,F403
+    # starter code uses `from fasthtml.common import *`; QueryBase import is required by the project spec
+    report/dashboard.py: F401,F403,F405

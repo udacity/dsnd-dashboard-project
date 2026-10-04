@@ -4,7 +4,6 @@ from fasthtml.common import Table, Tr, Th, Td
 
 class DataTable(BaseComponent):
 
-
     def build_component(self, entity_id, model):
 
         if model.name:
@@ -25,7 +24,5 @@ class DataTable(BaseComponent):
 
                 children = (*table.children, table_row)
                 table.children = children
-            
+
             return table
-            
-        

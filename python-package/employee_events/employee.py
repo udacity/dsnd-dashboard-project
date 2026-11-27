@@ -5,6 +5,7 @@ from query_base import QueryBase
 # from the `sql_execution` module
 from sql_execution import query
 
+
 # Define a subclass of QueryBase
 # called Employee
 class Employee(QueryBase):
@@ -13,17 +14,16 @@ class Employee(QueryBase):
     # to the string "employee"
     name = "employee"
 
-
     # Define a method called `names`
     # that receives no arguments
     # This method should return a list of tuples
     # from an sql execution
     @query
     def names(self):
-        
+
         # Query 3
         # Write an SQL query
-        # that selects two columns 
+        # that selects two columns
         # 1. The employee's full name
         # 2. The employee's id
         # This query should return the data
@@ -33,7 +33,6 @@ class Employee(QueryBase):
                    employee_id
             FROM employee
         """
-    
 
     # Define a method called `username`
     # that receives an `id` argument
@@ -41,7 +40,7 @@ class Employee(QueryBase):
     # from an sql execution
     @query
     def username(self, id):
-        
+
         # Query 4
         # Write an SQL query
         # that selects an employees full name
@@ -54,7 +53,6 @@ class Employee(QueryBase):
             WHERE employee_id = {id}
         """
 
-
     # Below is method with an SQL query
     # This SQL query generates the data needed for
     # the machine learning model.
@@ -62,7 +60,6 @@ class Employee(QueryBase):
     # so when it is called, a pandas dataframe
     # is returns containing the execution of
     # the sql query
-    #### YOUR CODE HERE
     def model_data(self, id):
 
         sql_query = f"""
@@ -73,4 +70,4 @@ class Employee(QueryBase):
                         USING({self.name}_id)
                     WHERE {self.name}.{self.name}_id = {id}
                 """
-        return self.pandas_query(sql_query)        
+        return self.pandas_query(sql_query)

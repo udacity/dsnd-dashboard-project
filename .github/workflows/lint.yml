@@ -30,4 +30,5 @@ jobs:
         python -m pip install flake8
     - name: Lint with flake8
       run: |
-        flake8 ./python-package/employee_events ./reports ./tests
+        flake8 ./python-package/employee_events ./report ./tests \
+        --exclude=./report/base_components
